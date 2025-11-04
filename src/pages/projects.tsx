@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/lib/firebase";
 import Layout from "@/components/layout/layout";
 import { Project } from "../lib/projet";
 import {
@@ -12,20 +10,16 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { projectsData } from "@/lib/projectsData";
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchProjects = () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "project"));
-        const data = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Project[];
-        setProjects(data);
+        setProjects(projectsData);
       } catch (error) {
         console.error("Erreur lors de la récupération des projets :", error);
       } finally {
