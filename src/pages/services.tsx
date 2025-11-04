@@ -13,6 +13,7 @@ import {
     ArrowRight,
 } from "lucide-react";
 import MyStack from "@/components/MyStack.tsx";
+import {AppearOnScroll} from "@/lib/ScrollEffect.tsx";
 
 
 // Interface pour typer les technologies
@@ -57,7 +58,7 @@ const Services = () => {
                 "Interface native",
                 "Performance optimisée",
             ],
-            price: "Tarifs adaptés selon vos besoins – devis gratuit",
+            price: "Tarifs adaptés selon vos besoins",
         },
         {
             icon: Globe,
@@ -123,15 +124,19 @@ const Services = () => {
             <section className="py-20 bg-background">
                 <div className="container mx-auto px-4">
                     {/* Hero Section */}
-                    <div className="text-center mb-16">
-                        <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 title3">
-                            Mes Services
-                        </h1>
-                        <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
-                            Solutions digitales complètes pour donner vie à vos projets avec
-                            expertise et créativité.
-                        </p>
-                    </div>
+                    <MyStack/>
+
+                    <AppearOnScroll>
+                        <div className="text-center mb-16">
+                            <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 title3">
+                                Mes Services
+                            </h1>
+                            <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
+                                Solutions digitales complètes pour donner vie à vos projets avec
+                                expertise et créativité.
+                            </p>
+                        </div>
+                    </AppearOnScroll>
 
                     {/* Services Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -188,41 +193,44 @@ const Services = () => {
 
                     {/* Process Section */}
                     <div className="mb-20">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 title3">
-                                Mon Processus de Travail
-                            </h2>
-                            <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
-                                Une approche structurée pour garantir la réussite de votre
-                                projet.
-                            </p>
-                        </div>
+                        <AppearOnScroll>
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 title3">
+                                    Mon Processus de Travail
+                                </h2>
+                                <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
+                                    Une approche structurée pour garantir la réussite de votre
+                                    projet.
+                                </p>
+                            </div>
+                        </AppearOnScroll>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {processSteps.map((process, index) => (
-                                <Card
-                                    key={index}
-                                    className="bg-gradient-card border-border-light shadow-card text-center group"
-                                >
-                                    <CardContent className="p-8">
-                                        <div
-                                            className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">
+                       <AppearOnScroll>
+                           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                               {processSteps.map((process, index) => (
+                                   <Card
+                                       key={index}
+                                       className="bg-gradient-card border-border-light shadow-card text-center group"
+                                   >
+                                       <CardContent className="p-8">
+                                           <div
+                                               className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">
                       <span className="text-primary-foreground font-bold text-lg">
                         {process.step}
                       </span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-text-primary mb-3">
-                                            {process.title}
-                                        </h3>
-                                        <p className="text-text-secondary">{process.description}</p>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
+                                           </div>
+                                           <h3 className="text-xl font-bold text-text-primary mb-3">
+                                               {process.title}
+                                           </h3>
+                                           <p className="text-text-secondary">{process.description}</p>
+                                       </CardContent>
+                                   </Card>
+                               ))}
+                           </div>
+                       </AppearOnScroll>
                     </div>
 
                     {/* Technologies Section */}
-                    <MyStack/>
 
                     {/* CTA Section */}
                     <div
