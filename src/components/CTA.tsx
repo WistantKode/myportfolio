@@ -2,34 +2,6 @@ import Layout from "@/components/layout/layout";
 import { Button } from "@/components/ui/button";
 
 const CTA = () => {
-
-  const processSteps = [
-    {
-      step: "01",
-      title: "Consultation",
-      description:
-        "Discussion de vos besoins et objectifs pour définir le projet ensemble.",
-    },
-    {
-      step: "02",
-      title: "Conception",
-      description:
-        "Création des maquettes et planification de l'architecture technique.",
-    },
-    {
-      step: "03",
-      title: "Développement",
-      description:
-        "Réalisation du projet avec des points de validation réguliers.",
-    },
-    {
-      step: "04",
-      title: "Livraison",
-      description:
-        "Déploiement, formation et accompagnement pour la mise en ligne.",
-    },
-  ];
-
   return (
     <Layout
       title="Services - Développement Web & IT student | Modjo Victor"
@@ -64,7 +36,7 @@ const CTA = () => {
                 className="border-border-light hover:border-primary hover:bg-primary/10"
               >
                 <a
-                  href="https://wa.me/237651727673"
+                  href="https://wa.me/+237697135341"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
