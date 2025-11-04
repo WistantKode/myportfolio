@@ -1,12 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Code,
-  Palette,
-  Megaphone,
-  Monitor,
-  Smartphone,
-  Globe,
-  Database,
+    Code,
+    Palette,
+    Megaphone,
+    Monitor,
+    Smartphone,
+    Globe,
+    Database, Heart,
 } from "lucide-react";
 import {
   AppearOnSrollToLeft,
@@ -35,6 +35,11 @@ const ServicesSection = () => {
       description:
         "Full-stack web development using cutting-edge technologies to build scalable and maintainable applications.",
     },
+      {
+          icon: Heart,
+          title: "SEO & search",
+          description: "Globe",
+      },
     {
       icon: Monitor,
       title: "Desktop Development",

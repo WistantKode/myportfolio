@@ -2,7 +2,7 @@ import Layout from "@/components/layout/layout";
 import { Button } from "@/components/ui/button";
 import { SiSpringboot, SiReact, SiCodewars } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Download, Code, Palette, Globe, Database, Monitor } from "lucide-react";
+import {Mail, Download, Code, Palette, Globe, Database, Monitor, Heart} from "lucide-react";
 import { ScaleTextEffect, AppearOnScale, AppearOnSrollToLeft, AppearOnSrollToRight, AppearOnScroll, } from "@/lib/ScrollEffect";
 
 
@@ -12,6 +12,7 @@ const AboutMe = () => {
         { icon: Code, name: "Frontend Development", level: 70 },
         { icon: Palette, name: "Desktop Development", level: 60 },
         { icon: Globe, name: "Web Technologies", level: 49 },
+        { icon: Heart, name: "SEO & search enging", level: 80 },
     ];
 
     return (
