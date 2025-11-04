@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 
-export const projectCategories = ["all", "web", "backend", "mobile"] as const;
+export const projectCategories = ["all", "web", "backend", "mobile", "UI/UX"] as const;
 export type ProjectCategory = typeof projectCategories[number];
 
 export interface Tech {

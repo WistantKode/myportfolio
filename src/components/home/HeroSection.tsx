@@ -1,159 +1,106 @@
-import {Button} from "@/components/ui/button";
-import {
-    ArrowRight,
-    Download,
-    MessageCircle,
-    Github,
-    Gitlab,
-    Linkedin,
-} from "lucide-react";
-import {AppearOnSrollToLeft} from "@/lib/ScrollEffect";
-import {FaWhatsapp} from "react-icons/fa";
-import heroImage from "@/assets/me.jpg";
+import React from 'react';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
+// --- Data Configuration --- //
+interface SocialLink {
+    name: string;
+    url: string;
+    icon: React.ElementType;
+}
 
+interface ActionButton {
+    text: string;
+    url: string;
+    variant: 'default' | 'outline';
+    icon?: React.ElementType;
+    downloadName?: string; // Changed from isDownload to downloadName for clarity and correctness
+}
+
+const socialLinks: SocialLink[] = [
+    { name: "GitHub", url: "https://github.com/wistantkode", icon: Github },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/wistantkode", icon: Linkedin },
+    { name: "WhatsApp", url: "https://wa.me/+237697135341", icon: FaWhatsapp },
+    { name: "Email", url: "mailto:wistantkode@protonmail.com", icon: Mail },
+];
+
+const actionButtons: ActionButton[] = [
+    { text: "Me Contacter", url: "https://wa.me/+237697135341", variant: 'default', icon: ArrowRight },
+    { text: "Voir mon CV", url: "/cv/cv - wistant.pdf", variant: 'outline', icon: Download, downloadName: "CV-Wistant-Kode.pdf" },
+];
+
+// --- Animation Variants --- //
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+        opacity: 1,
+        transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } }
+};
+
+// --- Main Component --- //
 const HeroSection = () => {
     return (
-        <section className="min-h-screen flex items-center bg-gradient-hero relative overflow-hidden">
-            {/* Background decorative elements */}
-            <div className="absolute inset-0">
-                <div
-                    className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow"/>
-                <div
-                    className="absolute bottom-20 right-10 w-96 h-96 bg-primary-glow/10 rounded-full blur-3xl animate-float"/>
+        <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
+            {/* Fond décoratif moderne */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute top-0 left-0 w-1/3 h-2/3 bg-primary/5 blur-3xl rounded-full animate-pulse-glow"></div>
+                <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-primary-glow/5 blur-3xl rounded-full animate-float"></div>
             </div>
 
-            <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-                {/* Left Content */}
-                <div className="space-y-8 animate-fade-in-up">
-                    <div className="space-y-4">
-                        <p className="text-primary font-medium text-lg title1">
-                            Hello welcome I'm,
-                        </p>
-                        <h1 className="text-5xl md:text-7xl font-bold text-text-primary leading-tight title3">
-                            Wistant Kode
-                        </h1>
-                        <h2 className="text-2xl md:text-3xl text-text-secondary font-medium title1">
-                            Développeur Web & Logiciel – Spécialisé Java Spring Boot & React
-                        </h2>
-                    </div>
+            <div className="container mx-auto px-4 z-10">
+                <motion.div 
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="max-w-3xl mx-auto text-center"
+                >
+                    <motion.p variants={itemVariants} className="text-lg font-medium text-primary mb-2 title1">
+                        Wistant Kode
+                    </motion.p>
 
-                    <p className="text-text-secondary text-lg md:text-xl leading-relaxed max-w-lg title2">
-                        Je conçois et développe des solutions logicielles innovantes,
-                        pensées pour répondre à des besoins réels et résoudre des
-                        problématiques concrètes. Spécialisé dans le développement backend,
-                        j’apporte des réponses solides, fiables et évolutives à ceux qui
-                        recherchent une expertise technique pour transformer leurs idées en
-                        solutions performantes.
-                    </p>
+                    <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-tight tracking-tighter mb-6 title3">
+                        Développeur Backend & Web
+                    </motion.h1>
 
-                    {/* Social Links */}
-                    <div className="flex space-x-4">
-                        <a
-                            href="https://wa.me/+237697135341"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
-                        >
-                            <FaWhatsapp className="w-5 h-5 animate-fade-in-up"/>
-                        </a>
-                        <a
-                            href="mailto:wistantkode@protonmail.com"
-                            className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
-                        >
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </a>
-                        <a
-                            href="https://github.com/wistantkode"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
-                        >
-                            <Github className="w-5 h-5"/>
-                        </a>
-                        <a
-                            href="https://gitlab.com/wistantkode"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
-                        >
-                            <Gitlab className="w-5 h-5"/>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/wistantkode"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
-                        >
-                            <Linkedin className="w-5 h-5"/>
-                        </a>
-                    </div>
+                    <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 title2">
+                        Je transforme des idées complexes en solutions logicielles robustes et évolutives, avec une expertise en Java/Spring et React/Next.js.
+                    </motion.p>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <Button
-                            asChild
-                            size="lg"
-                            className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth group"
-                        >
-                            <a
-                                href="https://wa.me/+237697135341"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Let's Talk
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"/>
+                    {/* Boutons d'action */}
+                    <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                        {actionButtons.map((btn) => (
+                            <Button key={btn.text} asChild size="lg" variant={btn.variant} className={`group ${btn.variant === 'default' ? 'bg-gradient-primary border-0 shadow-primary hover:shadow-glow' : 'border-border-light hover:border-primary hover:bg-primary/10'}`}>
+                                <a 
+                                    href={btn.url} 
+                                    // Correctly handle the download attribute
+                                    {...(btn.downloadName && { download: btn.downloadName })}
+                                    target={btn.downloadName ? undefined : "_blank"} 
+                                    rel="noopener noreferrer"
+                                >
+                                    {btn.text}
+                                    {btn.icon && <btn.icon className={`ml-2 w-5 h-5 transition-transform ${btn.variant === 'default' ? 'group-hover:translate-x-1' : 'group-hover:scale-110'}`} />}
+                                </a>
+                            </Button>
+                        ))}
+                    </motion.div>
+
+                    {/* Liens sociaux */}
+                    <motion.div variants={itemVariants} className="flex justify-center items-center gap-6">
+                        {socialLinks.map((link) => (
+                            <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-text-muted hover:text-primary transition-colors">
+                                <link.icon className="w-6 h-6" />
                             </a>
-                        </Button>
-
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            asChild
-                            className="border-border-light hover:border-primary hover:bg-primary/10 group"
-                        >
-                            <a
-                                href="public/cv/cv%20-%20wistant.pdf"
-                                download>
-                                <Download className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform"/>
-                                See My CV
-                            </a>
-                        </Button>
-                    </div>
-                </div>
-
-                {/* Right Content - Hero Image */}
-                <div className="flex justify-center lg:justify-end">
-                    <div className="relative">
-                        {/* Decorative circle background */}
-                        <div
-                            className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-20 scale-110 animate-pulse-glow"/>
-
-                        {/* Main image container */}
-                        <div
-                            className="hidden md:block relative w-80 h-80 md:w-96 md:h-96 bg-gradient-card rounded-full overflow-hidden shadow-card border-4 border-border-light">
-                            <img
-                                src='public/me.png'
-                                alt="Modjo victor - Dévellopeur backend & solution numérique"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                            />
-
-                            {/* Overlay gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"/>
-
-                            {/* Name badge */}
-                            <div
-                                className="absolute bottom-6 right-6 bg-background-card/90 backdrop-blur-sm rounded-lg px-4 py-2 border border-border-light">
-                                <p className="text-text-primary font-semibold">Wistant Kode</p>
-                                <p className="text-primary text-sm">Software engeenier student</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        ))}
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
