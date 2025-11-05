@@ -1,34 +1,42 @@
 import React from 'react';
-import { IconType } from "react-icons";
-import { motion } from "framer-motion";
-import { 
-    SiGit, SiGithub, SiTypescript, SiNestjs, SiMicrogenetics, 
-    SiPostgresql, SiTrello, SiSpringboot, SiReact, SiJavascript,
+import {IconType} from "react-icons";
+import {motion} from "framer-motion";
+import {Progress} from "@/components/ui/progress"; // Import Progress component
+import {
+    SiGit,
+    SiGithub,
+    SiJavascript,
+    SiMicrogenetics,
+    SiNestjs,
+    SiPostgresql,
+    SiReact,
+    SiSpringboot,
+    SiTrello,
+    SiTypescript,
 } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
+import {RiNextjsFill} from "react-icons/ri";
 
 // --- Data Configuration --- //
-// La logique de typage et de scalabilité que vous aimez est conservée.
-// Il suffit d'ajouter un objet à ce tableau pour qu'une nouvelle compétence apparaisse.
 interface Technology {
     name: string;
     icon: IconType;
     color: string;
-    size?: 'small' | 'medium' | 'large'; // Pour varier la taille des cartes
+    proficiency: number; // Added proficiency field
+    size?: 'small' | 'medium' | 'large';
 }
 
 const technologies: Technology[] = [
-    { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", size: 'large' },
-    { name: "React", icon: SiReact, color: "#61DAFB", size: 'large' },
-    { name: "Java", icon: SiJavascript, color: "#ED8B00", size: 'medium' },
-    { name: "Next.js", icon: RiNextjsFill, color: "#FFFFFF", size: 'medium' },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "Git", icon: SiGit, color: "#F05032" },
-    { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
-    { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
-    { name: "Microservices", icon: SiMicrogenetics, color: "#FF6B6B" },
-    { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
-    { name: "Trello", icon: SiTrello, color: "#0079BF" },
+    {name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", proficiency: 90, size: 'large'},
+    {name: "React", icon: SiReact, color: "#61DAFB", proficiency: 85, size: 'large'},
+    {name: "Java", icon: SiJavascript, color: "#ED8B00", proficiency: 95, size: 'medium'},
+    {name: "Next.js", icon: RiNextjsFill, color: "#FFFFFF", proficiency: 80, size: 'medium'},
+    {name: "TypeScript", icon: SiTypescript, color: "#3178C6", proficiency: 88},
+    {name: "Git", icon: SiGit, color: "#F05032", proficiency: 92},
+    {name: "GitHub", icon: SiGithub, color: "#FFFFFF", proficiency: 90},
+    {name: "NestJS", icon: SiNestjs, color: "#E0234E", proficiency: 75},
+    {name: "Microservices", icon: SiMicrogenetics, color: "#FF6B6B", proficiency: 85},
+    {name: "PostgreSQL", icon: SiPostgresql, color: "#336791", proficiency: 80},
+    {name: "Trello", icon: SiTrello, color: "#0079BF", proficiency: 70},
 ];
 // --- End Data Configuration --- //
 
@@ -67,7 +75,8 @@ const MyStack = () => {
                         viewport={{ once: true }}
                         className="text-text-secondary text-lg title1 max-w-3xl mx-auto"
                     >
-                        Une collection d'outils et de technologies que j'utilise pour construire des applications modernes et performantes.
+                        A curated collection of tools and technologies I leverage to build modern, high-performance, and
+                        secure applications.
                     </motion.p>
                 </div>
 
@@ -89,7 +98,6 @@ const MyStack = () => {
                         return (
                             <motion.div
                                 key={tech.name}
-                                // @ts-ignore
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.05, zIndex: 10 }}
                                 whileTap={{ scale: 0.95 }}
@@ -100,9 +108,14 @@ const MyStack = () => {
                                     size={tech.size === 'large' ? 48 : tech.size === 'medium' ? 36 : 28} 
                                     style={{ color: tech.color }}
                                 />
-                                <p className="text-text-primary text-sm font-medium whitespace-nowrap">
+                                <p className="text-text-primary text-sm font-medium whitespace-nowrap mb-2">
                                     {tech.name}
                                 </p>
+                                {/* Proficiency Indicator */}
+                                <div className="w-full bg-gray-700 rounded-full h-2.5 mb-1">
+                                    <Progress value={tech.proficiency} className="h-2.5" indicatorColor="bg-primary"/>
+                                </div>
+                                <p className="text-text-secondary text-xs">{tech.proficiency}% Proficiency</p>
                             </motion.div>
                         );
                     })}
