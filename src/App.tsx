@@ -12,6 +12,7 @@ import Contact from "./pages/contact";
 import AdminDashboard from "./pages/admin";
 import Projects from "./pages/projects.tsx";
 import NotFound from "./pages/not-found.tsx";
+import BlogPostDetail from "./pages/blog-post-detail.tsx"; // Import BlogPostDetail
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
                     {/*<Route path="/about" element={<About/>}/>*/}
                     <Route path="/services" element={<Services/>}/>
                     <Route path="/blog" element={<Blog/>}/>
+                    <Route path="/blog/:id" element={<BlogPostDetail/>}/> {/* Add new route for blog post detail */}
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/admin_modjo" element={<AdminDashboard/>}/>
                     <Route path="/projects" element={<Projects/>}/>

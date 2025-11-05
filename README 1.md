@@ -1,113 +1,71 @@
+# Wistant Kode — Technical Stack & Portfolio
+
 <div align="center">
-  <h1>✨ Welcome to my GitHub Universe ✨</h1>
-  <h3>🚀 DevSecOps Practicer | 💻 Software Engineering Student</h3>
+  <h1>Wistant Kode</h1>
+  <p><strong>Backend System Architect • Full‑Stack Developer • Computer Science Student</strong></p>
+  <p>
+    <a href="https://github.com/WistantKode"><img src="https://img.shields.io/badge/GitHub-WistantKode-181717?logo=github&logoColor=white" alt="GitHub" /></a>
+    <a href="mailto:wistantkode@protonmail.com"><img src="https://img.shields.io/badge/Email-wistantkode%40protonmail.com-D14836?logo=gmail&logoColor=white" alt="Email" /></a>
+    <a href="/cv/cv%20-%20wistant.pdf" download><img src="https://img.shields.io/badge/Resume-Download-0ea5e9?logo=adobepdf&logoColor=white" alt="Resume" /></a>
+  </p>
 </div>
 
 ---
 
-## 🌟 About Me
-
-> Hi! I'm **Wistant**, a passionate and self-taught student pursuing a **DUT in Software Engineering** in Cameroon 🎓.
-
-> My goal is to become a major tech player in Africa 🌍. I'm fascinated by **Cloud Computing, Automation, Cybersecurity, and Manga**.
-
-🚀 I'm learning and improving my skills in the following technologies:
-
-* **Node.js** and **NestJS** for robust, scalable back-end development
-* **Next.js** for modern web applications
-* **Linux: Protocols and Cybersecurity** for securing servers, applications, and incident response
-* **Cloud & DevOps** concepts for secure, automated deployments
-
-🔥 I already have solid foundation and knowledge in:
-
-* **Linux Environment and Bash scripting**
-* **JavaScript** for versatility
-* **HTML/CSS** for web design
-* **Git** for version control
+## About
+I design and build reliable, scalable backend systems and full‑stack web applications. Based in Yaoundé, Cameroon, I combine academic learning with practical experience to deliver performant and maintainable solutions for real business needs.
 
 ---
 
-## 🌐 My LinkedIn
-
-<p align="center">
-  <a href="https://linkedin.com/in/wistantkode" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-</p>
+## Badges
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![Java](https://img.shields.io/badge/Java-007396?logo=java&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=spring&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
 
 ---
 
-## 💻 My Tech Stack
-
-I have a clear goal and my tech stack is designed to help me achieve it: becoming the greatest DevSecOps engineer in Africa. It's oriented by stability, security, and scalability with Java; automation, robustness, and control with Git and Bash; the power, manageability, and reliability of open source with the Linux environment.
-
-### 🔹 Tools & Environments
-
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/linux-%23FCC624.svg?style=for-the-badge&logo=linux&logoColor=black)
-
-### 🔹 Languages & Frameworks
-
-![Nodes.js](https://img.shields.io/badge/nodejs-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![NestJS](https://img.shields.io/badge/nestjs-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white)
-![Typescript](https://img.shields.io/badge/typescript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Next.js](https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white)
-
-### 🔹 Web & UI
-
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-### 🔹 Databases
-
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+## Core Expertise
+- Backend architecture, API design, microservices (Java / Spring Boot, NestJS, Node.js)
+- Frontend development (React, Next.js, TypeScript, Tailwind CSS)
+- Databases and data modeling (PostgreSQL, MySQL)
+- DevOps basics: Docker, Git, CI/CD practices, Linux
+- Security-conscious development and automation concepts
 
 ---
 
-## 📊 My GitHub Statistics
+## Quick Start (Local)
+1. Clone the repo  
+   `git clone https://github.com/WistantKode/<repo>.git`
+2. Install dependencies  
+   `npm install`
+3. Run development server  
+   `npm run dev`
+4. Build for production  
+   `npm run build`
+
+(Replace `<repo>` with the actual repository name.)
+
+---
+
+## Projects & Assets
+- Resume: `/cv/cv%20-%20wistant.pdf` (downloadable)
+- Portfolio pages (React / Next.js) with focus on backend architecture and case studies
+- Example integrations: authentication, REST/GraphQL APIs, containerized deployments
+
+---
+
+## Contact
+- Email: `wistantkode@protonmail.com`
+- GitHub: `https://github.com/WistantKode`
+
+---
+
+## Contributing
+Contributions, suggestions, and issues are welcome. Please open an issue or a pull request with a clear description of the change and rationale.
+
+---
+
+## License
+This repository is licensed under the MIT License. See `LICENSE` for details.
 
 <div align="center">
-  
-  <img src="https://github-readme-stats.vercel.app/api?username=wistantkode&theme=radical&show_icons=true" alt="GitHub Stats"/>
-  <br/>
-  <img src="https://streak-stats.demolab.com?user=wistantkode&theme=radical&hide_border=false" alt="GitHub Streak"/>
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=wistantkode&layout=compact&theme=radical" alt="Top Languages"/>
-
-  ![trophy](https://github-profile-trophy.vercel.app/?username=wistantkode&theme=radical&no-frame=true&no-bg=true&margin-w=15)
-
-  ![visitors](https://visitor-badge.laobi.icu/badge?page_id=wistantkode.wistantkode)
-
-</div>
-
----
-
-## 🚀 Goals for June 2026: My Roadmap
-
-* ✅ Launch my very first Software as a Service with the primary goal of learning through concrete projects and having real environments to deploy, secure, and finally monetize.
-* ✅ Launch impactful **technological initiatives** on my campus and in my city.
-* ✅ Build the foundations of a revolutionary tech empire in my continent and be remembered for eternity.
-* ✅ Become financially independent by leveraging my **tech** skills.
-* ✅ Build and animate a **community** of developers, focused on code and knowledge sharing.
-
----
-
-## 📖 Quote That Inspires Me
-
-> "Code is like painting: every line can become a work of art if written with passion." 🎨💻
-
----
-
-## 🎯 My Vision for the Future
-
-> I want to build a revolutionary tech empire in my continent and be remembered in the annals for eternity.
-
----
-
-<div align="center">
-  <h3>💡 Always building, always learning, always growing. Let's connect! 💡</h3>
+  <small>© Wistant Kode — Always building, always learning.</small>
 </div>
