@@ -8,7 +8,7 @@ const PROJECT_IMAGE_BASE_PATH = "/projects img/";
 
 export const projectsData: Project[] = [
     {
-        id: "proj-shopdo",
+        id: "12",
         title: "ShopDO - E-commerce Platform Backend",
         description: "Developed a robust and scalable backend for an e-commerce platform, focusing on secure API design and efficient data management. Implemented core functionalities for product catalog, user authentication, and order processing.",
         category: "backend",
@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
     },
     {
-        id: "proj-nestjs-auth",
+        id: "6",
         title: "NESTJS AUTH JWT - Secure Authentication Microservice",
         description: "Engineered a secure and efficient authentication microservice using NestJS, implementing JWT (JSON Web Tokens) for robust user authorization. Designed for seamless integration into larger application architectures.",
         category: "backend",

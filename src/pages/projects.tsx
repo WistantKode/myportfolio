@@ -1,22 +1,23 @@
-import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import {useMemo, useState} from "react";
+import {motion} from "framer-motion";
 import Layout from "@/components/layout/layout";
-import { Project, ProjectCategory } from "../lib/projet";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Eye, Search, Globe, Server, Smartphone, Code } from "lucide-react";
-import { projectsData } from "@/lib/projectsData";
-import { IconType } from "react-icons";
+import {ProjectCategory} from "../lib/projet";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {ArrowRight, Code, Eye, Globe, Search, Server, Smartphone} from "lucide-react";
+import {projectsData} from "@/lib/projectsData";
+import {IconType} from "react-icons";
 import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationEllipsis
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious
 } from "@/components/ui/pagination";
+import {ImageLightbox} from "@/components/ui/ImageLightbox"; // Import the lightbox
 
 // Filter configuration
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
@@ -32,6 +33,7 @@ export default function Projects() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("all");
   const [currentPage, setCurrentPage] = useState(1);
+    const [lightboxImage, setLightboxImage] = useState<string | null>(null); // State for lightbox
 
   const filteredAndSortedProjects = useMemo(() => {
     const filtered = projectsData.filter(project => {
@@ -126,7 +128,7 @@ export default function Projects() {
             </div>
 
             {/* Categories */}
-            <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap justify-center md:justify-end">
               {filterConfig.map(({ name, category, icon: Icon }) => (
                 <Button
                   key={category}
@@ -159,7 +161,10 @@ export default function Projects() {
                 <Card className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group h-full flex flex-col">
                   <CardHeader>
                     {project.imageUrl && (
-                      <div className="w-full h-40 rounded-xl overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform shadow-primary">
+                        <div
+                            className="w-full h-40 rounded-xl overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform shadow-primary cursor-pointer"
+                            onClick={() => setLightboxImage(project.imageUrl || null)}
+                        >
                         <img
                           src={project.imageUrl}
                           alt={project.title}
@@ -252,6 +257,16 @@ export default function Projects() {
           </div>
         )}
       </div>
+
+        {/* Lightbox for viewing images */}
+        {lightboxImage && (
+            <ImageLightbox
+                src={lightboxImage}
+                alt="Project Screenshot"
+                isOpen={!!lightboxImage}
+                onClose={() => setLightboxImage(null)}
+            />
+        )}
     </Layout>
   );
 }
