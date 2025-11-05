@@ -8,15 +8,6 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Eye, Search, Globe, Server, Smartphone, Code } from "lucide-react";
 import { projectsData } from "@/lib/projectsData";
 import { IconType } from "react-icons";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationEllipsis
-} from "@/components/ui/pagination";
 
 // Filter configuration
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
@@ -26,74 +17,18 @@ const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[
   { name: "Mobile", category: "mobile", icon: Smartphone },
 ];
 
-const PROJECTS_PER_PAGE = 6; // Define how many projects per page
-
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("all");
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredAndSortedProjects = useMemo(() => {
-    const filtered = projectsData.filter(project => {
+  const filteredProjects = useMemo(() => {
+    return projectsData.filter(project => {
       const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            project.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === "all" || project.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-    // Optionally sort projects here if needed
-    return filtered;
   }, [searchTerm, selectedCategory]);
-
-  const totalPages = Math.ceil(filteredAndSortedProjects.length / PROJECTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
-  const endIndex = startIndex + PROJECTS_PER_PAGE;
-  const currentProjects = filteredAndSortedProjects.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on page change
-  };
-
-  const renderPaginationItems = () => {
-    const items = [];
-    const maxPageButtons = 5; // Max number of page buttons to show
-    const startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-    const endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-
-    if (startPage > 1) {
-      items.push(
-        <PaginationItem key="first">
-          <PaginationLink onClick={() => handlePageChange(1)}>1</PaginationLink>
-        </PaginationItem>
-      );
-      if (startPage > 2) {
-        items.push(<PaginationItem key="ellipsis-start"><PaginationEllipsis /></PaginationItem>);
-      }
-    }
-
-    for (let page = startPage; page <= endPage; page++) {
-      items.push(
-        <PaginationItem key={page}>
-          <PaginationLink isActive={page === currentPage} onClick={() => handlePageChange(page)}>
-            {page}
-          </PaginationLink>
-        </PaginationItem>
-      );
-    }
-
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
-        items.push(<PaginationItem key="ellipsis-end"><PaginationEllipsis /></PaginationItem>);
-      }
-      items.push(
-        <PaginationItem key="last">
-          <PaginationLink onClick={() => handlePageChange(totalPages)}>{totalPages}</PaginationLink>
-        </PaginationItem>
-      );
-    }
-
-    return items;
-  };
 
   return (
     <Layout
@@ -133,10 +68,7 @@ export default function Projects() {
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
                   size="sm"
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    setCurrentPage(1); // Reset to first page on category change
-                  }}
+                  onClick={() => setSelectedCategory(category)}
                   className={`group/filter ${selectedCategory === category ? "bg-gradient-primary border-0" : ""}`}
                 >
                   <Icon className="w-4 h-4 mr-2 transition-transform group-hover/filter:scale-110" />
@@ -148,9 +80,9 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        {currentProjects.length > 0 ? (
+        {filteredProjects.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentProjects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 40 }}
@@ -233,23 +165,6 @@ export default function Projects() {
         ) : (
           <div className="text-center py-16">
             <p className="text-text-muted text-lg">Aucun projet ne correspond à vos critères.</p>
-          </div>
-        )}
-
-        {/* Pagination Controls */}
-        {totalPages > 1 && (
-          <div className="mt-12 flex justify-center">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
-                </PaginationItem>
-                {renderPaginationItems()}
-                <PaginationItem>
-                  <PaginationNext onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
           </div>
         )}
       </div>
