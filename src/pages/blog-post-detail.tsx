@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/layout/layout';
-import { ArrowLeft, Calendar, User, Tag, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, BookOpen, Share2, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Twitter, Linkedin } from 'lucide-react'; // For social share icons
 
 // Define BlogPost interface for robust data structure
 interface BlogPost {
@@ -132,6 +133,8 @@ const BlogPostDetail = () => {
       day: 'numeric'
     });
   };
+
+  const currentUrl = window.location.href; // Get current URL for sharing
 
   return (
     <Layout
