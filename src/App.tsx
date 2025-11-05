@@ -9,7 +9,7 @@ import About from "./pages/about";
 import Services from "./pages/services";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
-import Dashboard from "./pages/dashboad.tsx";
+import Dashboard from "./pages/dashboard.tsx";
 import AdminDashboard from "./pages/admin";
 import Projects from "./pages/projects.tsx";
 import NotFound from "./pages/not-found.tsx";
