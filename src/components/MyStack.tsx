@@ -1,7 +1,7 @@
 import React from 'react';
 import {IconType} from "react-icons";
-import {motion} from "framer-motion";
-import {Progress} from "@/components/ui/progress"; // Import Progress component
+import {motion, TargetAndTransition, Transition} from "framer-motion"; // Import TargetAndTransition and Transition
+import {Progress} from "@/components/ui/progress";
 import {
     SiGit,
     SiGithub,
@@ -21,22 +21,113 @@ interface Technology {
     name: string;
     icon: IconType;
     color: string;
-    proficiency: number; // Added proficiency field
+    proficiency: number;
     size?: 'small' | 'medium' | 'large';
+    // Add animation properties to the interface
+    animate?: TargetAndTransition;
+    transition?: Transition;
+    whileHover?: TargetAndTransition;
 }
 
 const technologies: Technology[] = [
-    {name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", proficiency: 90, size: 'large'},
-    {name: "React", icon: SiReact, color: "#61DAFB", proficiency: 85, size: 'large'},
-    {name: "Java", icon: SiJavascript, color: "#ED8B00", proficiency: 95, size: 'medium'},
-    {name: "Next.js", icon: RiNextjsFill, color: "#FFFFFF", proficiency: 80, size: 'medium'},
-    {name: "TypeScript", icon: SiTypescript, color: "#3178C6", proficiency: 88},
-    {name: "Git", icon: SiGit, color: "#F05032", proficiency: 92},
-    {name: "GitHub", icon: SiGithub, color: "#FFFFFF", proficiency: 90},
-    {name: "NestJS", icon: SiNestjs, color: "#E0234E", proficiency: 75},
-    {name: "Microservices", icon: SiMicrogenetics, color: "#FF6B6B", proficiency: 85},
-    {name: "PostgreSQL", icon: SiPostgresql, color: "#336791", proficiency: 80},
-    {name: "Trello", icon: SiTrello, color: "#0079BF", proficiency: 70},
+    {
+        name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", proficiency: 90, size: 'large',
+        animate: {y: [0, -5, 0]}, transition: {duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut"},
+        whileHover: {scale: 1.1, rotate: 5}
+    },
+    {
+        name: "React",
+        icon: SiReact,
+        color: "#61DAFB",
+        proficiency: 85,
+        size: 'large',
+        animate: {y: [0, 5, 0]},
+        transition: {duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.2},
+        whileHover: {scale: 1.1, rotate: -5}
+    },
+    {
+        name: "Java",
+        icon: SiJavascript,
+        color: "#ED8B00",
+        proficiency: 95,
+        size: 'medium',
+        animate: {x: [0, -5, 0]},
+        transition: {duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.4},
+        whileHover: {scale: 1.1, rotate: 8}
+    },
+    {
+        name: "Next.js",
+        icon: RiNextjsFill,
+        color: "#FFFFFF",
+        proficiency: 80,
+        size: 'medium',
+        animate: {x: [0, 5, 0]},
+        transition: {duration: 3.1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.6},
+        whileHover: {scale: 1.1, rotate: -8}
+    },
+    {
+        name: "TypeScript",
+        icon: SiTypescript,
+        color: "#3178C6",
+        proficiency: 88,
+        animate: {y: [0, -3, 0]},
+        transition: {duration: 2.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8},
+        whileHover: {scale: 1.1, rotate: 3}
+    },
+    {
+        name: "Git",
+        icon: SiGit,
+        color: "#F05032",
+        proficiency: 92,
+        animate: {y: [0, 3, 0]},
+        transition: {duration: 3.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.0},
+        whileHover: {scale: 1.1, rotate: -3}
+    },
+    {
+        name: "GitHub",
+        icon: SiGithub,
+        color: "#FFFFFF",
+        proficiency: 90,
+        animate: {x: [0, -3, 0]},
+        transition: {duration: 2.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.2},
+        whileHover: {scale: 1.1, rotate: 6}
+    },
+    {
+        name: "NestJS",
+        icon: SiNestjs,
+        color: "#E0234E",
+        proficiency: 75,
+        animate: {x: [0, 3, 0]},
+        transition: {duration: 3.4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.4},
+        whileHover: {scale: 1.1, rotate: -6}
+    },
+    {
+        name: "Microservices",
+        icon: SiMicrogenetics,
+        color: "#FF6B6B",
+        proficiency: 85,
+        animate: {y: [0, -4, 0]},
+        transition: {duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.6},
+        whileHover: {scale: 1.1, rotate: 4}
+    },
+    {
+        name: "PostgreSQL",
+        icon: SiPostgresql,
+        color: "#336791",
+        proficiency: 80,
+        animate: {y: [0, 4, 0]},
+        transition: {duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.8},
+        whileHover: {scale: 1.1, rotate: -4}
+    },
+    {
+        name: "Trello",
+        icon: SiTrello,
+        color: "#0079BF",
+        proficiency: 70,
+        animate: {x: [0, -4, 0]},
+        transition: {duration: 2.6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.0},
+        whileHover: {scale: 1.1, rotate: 7}
+    },
 ];
 // --- End Data Configuration --- //
 
@@ -98,8 +189,10 @@ const MyStack = () => {
                         return (
                             <motion.div
                                 key={tech.name}
-                                variants={itemVariants}
-                                whileHover={{ scale: 1.05, zIndex: 10 }}
+                                variants={itemVariants} // Keep itemVariants for initial appearance
+                                animate={tech.animate} // Apply continuous animation
+                                transition={tech.transition} // Apply continuous transition
+                                whileHover={tech.whileHover || {scale: 1.05, zIndex: 10}} // Apply hover animation
                                 whileTap={{ scale: 0.95 }}
                                 className={`bg-gradient-card border border-border-light rounded-xl text-center shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer ${sizeClasses[tech.size || 'small']}`}
                             >
