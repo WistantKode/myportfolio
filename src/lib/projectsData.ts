@@ -37,6 +37,21 @@ export const projectsData: Project[] = [
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`,
     },
     {
+        id: "proj-chickfood-v2",
+        title: "Chick Food - Responsive Restaurant Frontend (V2)",
+        description: "An enhanced responsive frontend for a fictional fried chicken restaurant, delivering an engaging user experience with smooth animations and a clean, modern design. A robust portfolio piece demonstrating advanced HTML, CSS, and JavaScript skills.",
+        category: "web",
+        tech: [
+            {name: "HTML5", icon: SiHtml5},
+            {name: "JavaScript", icon: SiJavascript},
+            {name: "Tailwind CSS", icon: SiTailwindcss},
+            {name: "CSS3", icon: SiCss3},
+        ],
+        repoGit: "https://github.com/wistantkode/ChickFood-Frontend-V2", // Placeholder
+        liveUrl: "#", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}chickfood.png`,
+    },
+    {
         id: "proj-structo",
         title: "Structo - Modern Construction Landing Page",
         description: "Developed a fully responsive and easily customizable landing page for a construction company. Features sections for services, projects, testimonials, and contact information, utilizing modern design principles, Google Fonts (Outfit), and Remixicon for enhanced aesthetics.",
@@ -109,19 +124,5 @@ export const projectsData: Project[] = [
         liveUrl: "#", // Placeholder
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
     },
-    {
-        id: "proj-chickfood-v2",
-        title: "Chick Food - Responsive Restaurant Frontend (V2)",
-        description: "An enhanced responsive frontend for a fictional fried chicken restaurant, delivering an engaging user experience with smooth animations and a clean, modern design. A robust portfolio piece demonstrating advanced HTML, CSS, and JavaScript skills.",
-        category: "web",
-        tech: [
-            {name: "HTML5", icon: SiHtml5},
-            {name: "JavaScript", icon: SiJavascript},
-            {name: "Tailwind CSS", icon: SiTailwindcss},
-            {name: "CSS3", icon: SiCss3},
-        ],
-        repoGit: "https://github.com/wistantkode/ChickFood-Frontend-V2", // Placeholder
-        liveUrl: "#", // Placeholder
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}chickfood.png`,
-    },
+
 ];
