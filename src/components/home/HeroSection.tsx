@@ -3,7 +3,7 @@ import { motion, TargetAndTransition, Transition } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { FaWhatsapp, FaReact, FaJava, FaGitAlt } from "react-icons/fa";
-import { SiSpringboot, SiTypescript, SiNextdotjs, SiJavascript } from "react-icons/si";
+import {SiSpringboot, SiTypescript, SiNextdotjs, SiJavascript, SiNestjs, SiGithub} from "react-icons/si";
 import { TypeAnimation } from 'react-type-animation'; // Import the library
 
 // --- Data Configuration --- //
@@ -46,19 +46,19 @@ interface DynamicIcon {
 
 const dynamicIcons: DynamicIcon[] = [
     { 
-        icon: FaReact, size: 40, color: "#61DAFB", position: { top: "15%", left: "15%" }, 
+        icon: FaReact, size: 60, color: "#61DAFB", position: { top: "15%", left: "15%" },
         animate: { y: [0, -25, 0], rotate: [0, 15, -15, 0] }, 
         transition: { duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: FaJava, size: 35, color: "#ED8B00", position: { bottom: "20%", right: "18%" }, 
+        icon: SiNestjs, size: 35, color: "#ED8B00", position: { bottom: "20%", right: "18%" },
         animate: { y: [0, 20, 0], rotate: [0, -10, 10, 0] }, 
         transition: { duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiSpringboot, size: 45, color: "#6DB33F", position: { top: "25%", right: "25%" }, 
+        icon: SiJavascript, size: 45, color: "#6DB33F", position: { top: "25%", right: "25%" },
         animate: { x: [0, 20, 0], rotate: [0, 20, -20, 0] }, 
         transition: { duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
@@ -76,7 +76,7 @@ const dynamicIcons: DynamicIcon[] = [
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     {
-        icon: SiJavascript, size: 32, color: "#F7DF1E", position: { bottom: "35%", right: "10%" },
+        icon: SiGithub, size: 46, color: "#F7DF1E", position: { bottom: "35%", right: "10%" },
         animate: { y: [0, 25, 0], rotate: [0, -15, 15, 0] },
         transition: { duration: 2.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
