@@ -71,7 +71,7 @@ const HeroSection = () => {
                     </motion.h1>
 
                     <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 title2">
-                        Je transforme des idées complexes en solutions logicielles robustes et évolutives, avec une expertise en Java/Spring et React/Next.js.
+                        Je transforme  des idées complexes en solutions logicielles robustes et évolutives, avec une expertise en Java/Spring et React/Next.js.
                     </motion.p>
 
                     {/* Boutons d'action */}
