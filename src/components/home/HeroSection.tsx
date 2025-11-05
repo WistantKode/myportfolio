@@ -16,7 +16,7 @@ interface ActionButton {
     url: string;
     variant: 'default' | 'outline';
     icon?: React.ElementType;
-    downloadName?: string; // Changed from isDownload to downloadName for clarity and correctness
+    downloadName?: string;
 }
 
 const socialLinks: SocialLink[] = [
@@ -27,8 +27,8 @@ const socialLinks: SocialLink[] = [
 ];
 
 const actionButtons: ActionButton[] = [
-    { text: "Me Contacter", url: "https://wa.me/+237697135341", variant: 'default', icon: ArrowRight },
-    { text: "Voir mon CV", url: "/cv/cv - wistant.pdf", variant: 'outline', icon: Download, downloadName: "CV-Wistant-Kode.pdf" },
+    { text: "Let's Talk", url: "https://wa.me/+237697135341", variant: 'default', icon: ArrowRight },
+    { text: "Download CV", url: "/cv/cv - wistant.pdf", variant: 'outline', icon: Download, downloadName: "Wistant-Kode-CV.pdf" },
 ];
 
 // --- Animation Variants --- //
@@ -49,7 +49,7 @@ const itemVariants = {
 const HeroSection = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
-            {/* Fond décoratif moderne */}
+            {/* Modern Decorative Background */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 left-0 w-1/3 h-2/3 bg-primary/5 blur-3xl rounded-full animate-pulse-glow"></div>
                 <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-primary-glow/5 blur-3xl rounded-full animate-float"></div>
@@ -63,24 +63,23 @@ const HeroSection = () => {
                     className="max-w-3xl mx-auto text-center"
                 >
                     <motion.p variants={itemVariants} className="text-lg font-medium text-primary mb-2 title1">
-                        Wistant Kode
+                        Hi, I'm Wistant Kode
                     </motion.p>
 
                     <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-tight tracking-tighter mb-6 title3">
-                        Développeur Backend & Web
+                        DevSecOps Practicer & Software Engineer
                     </motion.h1>
 
                     <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 title2">
-                        Je transforme  des idées complexes en solutions logicielles robustes et évolutives, avec une expertise en Java/Spring et React/Next.js.
+                        I transform complex ideas into robust and scalable software solutions, with expertise in Java/Spring Boot, React/Next.js, Cloud, Automation, and Cybersecurity.
                     </motion.p>
 
-                    {/* Boutons d'action */}
+                    {/* Action Buttons */}
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
                         {actionButtons.map((btn) => (
                             <Button key={btn.text} asChild size="lg" variant={btn.variant} className={`group ${btn.variant === 'default' ? 'bg-gradient-primary border-0 shadow-primary hover:shadow-glow' : 'border-border-light hover:border-primary hover:bg-primary/10'}`}>
                                 <a 
                                     href={btn.url} 
-                                    // Correctly handle the download attribute
                                     {...(btn.downloadName && { download: btn.downloadName })}
                                     target={btn.downloadName ? undefined : "_blank"} 
                                     rel="noopener noreferrer"
@@ -92,7 +91,7 @@ const HeroSection = () => {
                         ))}
                     </motion.div>
 
-                    {/* Liens sociaux */}
+                    {/* Social Links */}
                     <motion.div variants={itemVariants} className="flex justify-center items-center gap-6">
                         {socialLinks.map((link) => (
                             <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-text-muted hover:text-primary transition-colors">
