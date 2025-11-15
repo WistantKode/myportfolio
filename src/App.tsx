@@ -9,6 +9,7 @@ import About from "./pages/about";
 import Services from "./pages/services";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
+import Dashboard from "./pages/dashboard.tsx";
 import AdminDashboard from "./pages/admin";
 import Projects from "./pages/projects.tsx";
 import NotFound from "./pages/not-found.tsx";
@@ -29,7 +30,7 @@ const App = () => (
                     <Route path="/blog" element={<Blog/>}/>
                     <Route path="/blog/:id" element={<BlogPostDetail/>}/> {/* Add new route for blog post detail */}
                     <Route path="/contact" element={<Contact/>}/>
-                    <Route path="/admin_modjo" element={<AdminDashboard/>}/>
+                    <Route path="/admin-portfolio" element={<Dashboard/>}/>
                     <Route path="/projects" element={<Projects/>}/>
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
